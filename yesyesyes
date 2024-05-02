@@ -9,7 +9,7 @@ function adicionarNumero() {
   Trello.post('/cards', {
     name: "Número: " + numero,
     desc: "Número digitado pelo usuário: " + numero,
-    idList: "kqYHwbH7" // Substitua pelo ID da lista onde deseja adicionar o card
+    idList: "662fe23bcd8984f2fd3a2a37" // Substitua pelo ID da lista onde deseja adicionar o card
   })
   .then(function(card){
     console.log('Card criado com sucesso:', card);
