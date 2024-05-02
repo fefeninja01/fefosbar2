@@ -1,0 +1,25 @@
+function adicionarNumero() {
+  var numero = document.getElementById("numero").value;
+
+  // Autenticar com a API do Trello usando sua chave e token
+  Trello.setKey('285a502ddb1c19d8483365d17e25a4d8');
+  Trello.setToken('ATTA3db5d25437ebe5e5f9f2d1ee5f50e22116feab9f2529f25bcc9bc9d234bb27c3315E59DE
+');
+
+  // Criar o card no Trello
+  Trello.post('/cards', {
+    name: "Número: " + numero,
+    desc: "Número digitado pelo usuário: " + numero,
+    idList: "kqYHwbH7" // Substitua pelo ID da lista onde deseja adicionar o card
+  })
+  .then(function(card){
+    console.log('Card criado com sucesso:', card);
+    alert("Número adicionado com sucesso!");
+    // Limpar o campo de entrada
+    document.getElementById("numero").value = "";
+  })
+  .catch(function(error) {
+    console.error('Erro ao criar card:', error);
+    alert("Ocorreu um erro ao adicionar o número. Por favor, tente novamente.");
+  });
+}
